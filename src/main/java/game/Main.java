@@ -1,4 +1,5 @@
-import engine.Window;
+package game;
+import game.engine.Window;
 
 public class Main {
     public static void main(String[] args) {

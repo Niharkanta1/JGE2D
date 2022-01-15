@@ -1,2 +1,2 @@
 # JGE2D
-A Java Game Enigne
+A Java 2D Game Engine

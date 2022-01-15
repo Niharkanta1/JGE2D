@@ -1,11 +1,10 @@
-package engine;
+package game.engine;
 
 import org.lwjgl.Version;
-import org.lwjgl.glfw.Callbacks;
-import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
-import util.Time;
+
+import game.util.Time;
 
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
@@ -35,11 +34,13 @@ public class Window {
         switch (newScene) {
             case 0:
                 currentScene = new LevelEditorScene();
-                //currentScene.init();
+                currentScene.init();
+                currentScene.start();
                 break;
             case 1:
                 currentScene = new LevelScene();
-                //currentScene.init();
+                currentScene.init();
+                currentScene.start();
                 break;
             default:
                 assert false: "Unknown scene '"+ newScene + "'";

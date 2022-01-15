@@ -1,4 +1,6 @@
-package engine;
+package game.engine;
+
+import game.components.SpriteRenderer;
 
 import java.awt.event.KeyEvent;
 
@@ -8,7 +10,7 @@ public class LevelEditorScene extends Scene {
     public LevelEditorScene() {
         System.out.println("Inside Level Editor");
     }
-
+    GameObject testObject;
     @Override
     public void update(float dt) {
         if(!changingScene && KeyListener.isKeyPressed(KeyEvent.VK_SPACE)) {
@@ -23,6 +25,18 @@ public class LevelEditorScene extends Scene {
         } else if(changingScene) {
             Window.changeScene(1);
         }
+
+        for(GameObject go: this.gameObjects) {
+            go.update(dt);
+        }
+    }
+
+    @Override
+    public void init() {
+        System.out.println("Creating test game object");
+        this.testObject = new GameObject("Test Object");
+        this.testObject.addComponent(new SpriteRenderer());
+        this.addGameObjectToScene(this.testObject);
     }
 
 }
